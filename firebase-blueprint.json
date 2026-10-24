@@ -1,0 +1,144 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Specialty coffee gear product item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "nameEn": { "type": "string" },
+        "brand": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "rating": { "type": "number" },
+        "reviewCount": { "type": "number" },
+        "inStock": { "type": "boolean" },
+        "stockCount": { "type": "number" },
+        "sku": { "type": "string" },
+        "badge": { "type": "string" },
+        "iconType": { "type": "string" },
+        "description": { "type": "string" },
+        "features": { "type": "array" },
+        "imageUrl": { "type": "string" },
+        "subcategoryId": { "type": "string" },
+        "subcategory": { "type": "string" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "name", "brand", "category", "price"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Product category with optional branch subcategories",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "iconType": { "type": "string" },
+        "itemCount": { "type": "number" },
+        "subcategories": { "type": "array" },
+        "featured": { "type": "boolean" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["id", "name"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderNumber": { "type": "string" },
+        "date": { "type": "string" },
+        "items": { "type": "array" },
+        "customerName": { "type": "string" },
+        "phone": { "type": "string" },
+        "province": { "type": "string" },
+        "city": { "type": "string" },
+        "address": { "type": "string" },
+        "deliveryNotes": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "subtotal": { "type": "number" },
+        "deliveryFee": { "type": "number" },
+        "discountAmount": { "type": "number" },
+        "total": { "type": "number" },
+        "orderStatus": { "type": "string" },
+        "paymentStatus": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["customerName", "phone", "province", "address", "total"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "Store configuration and contact settings",
+      "type": "object",
+      "properties": {
+        "websiteName": { "type": "string" },
+        "slogan": { "type": "string" },
+        "phone": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "facebook": { "type": "string" },
+        "instagram": { "type": "string" },
+        "tiktok": { "type": "string" },
+        "deliveryFeeBaghdad": { "type": "number" },
+        "deliveryFeeProvinces": { "type": "number" },
+        "currency": { "type": "string" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "PaymentConfig": {
+      "title": "PaymentConfig",
+      "description": "Payment gateways configuration",
+      "type": "object",
+      "properties": {
+        "cod": { "type": "object" },
+        "zaincash": { "type": "object" },
+        "card": { "type": "object" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "AdminProfile": {
+      "title": "AdminProfile",
+      "description": "Administrator account metadata",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "lastLogin": { "type": "number" }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of coffee gear products for the store"
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Collection of product categories"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Collection of customer orders submitted from the storefront"
+    },
+    "/settings/general": {
+      "schema": "Settings",
+      "description": "General store settings document"
+    },
+    "/paymentMethods/config": {
+      "schema": "PaymentConfig",
+      "description": "Payment methods configuration document"
+    },
+    "/admins/{adminId}": {
+      "schema": "AdminProfile",
+      "description": "Admin user profile documents"
+    }
+  }
+}

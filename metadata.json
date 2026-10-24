@@ -1,0 +1,6 @@
+{
+  "name": "نغمة فنجان | Naghmat Finjan",
+  "description": "متجر نغمة فنجان - نكهات تترك أثراً | أدوات ومعدات القهوة المختصة وطواحين وأجهزة في العراق",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
